@@ -14,14 +14,23 @@
   ],
   "private": false,
   "scripts": {
-    "build": "tsup index.ts --format cjs,esm --dts --minify",
-    "lint": "tsc",
+    "build": "tsup src/index.ts --format cjs,esm --dts --minify",
+    "lint": "tsc && biome format ./src",
     "test": "vitest",
-    "ci:release": "pnpm run build && changeset publish"
+    "ci:release": "pnpm run build && changeset publish",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "pnpm run lint"
+    ]
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@changesets/cli": "^2.27.9",
     "dotenv": "^16.4.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3",
     "vitest": "^2.1.5"
