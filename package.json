@@ -1,5 +1,5 @@
 {
-  "name": "@kousaku-maron/ts-package-template",
+  "name": "@kousaku-maron/opentroupe-js",
   "version": "0.0.1",
   "license": "UNLICENSED",
   "main": "dist/index.js",
